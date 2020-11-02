@@ -14,7 +14,7 @@ To jump into interactive ruby session and access endpoints:
 $ irb 
 > require 'som_timer'
 # get one timer 
-> SomTimer.one_timer("timers/1")
+> SomTimer.one_timer
 # get a random exercise 
 > SomTimer.rand_exercise(<duration>, <category>)
 # get all exercises 
