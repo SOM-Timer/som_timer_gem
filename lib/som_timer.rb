@@ -29,4 +29,8 @@ class SomTimer
     url = "rand_exercise?duration=#{duration}&category=#{category}"
     self.perform_request(url)
   end
+
+  def self.exercises
+    self.perform_request("exercises")
+  end
 end
