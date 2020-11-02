@@ -2,6 +2,15 @@ source 'https://rubygems.org'
 
 ruby '2.5.3'
 
-gem 'simplecov', group: :test
+gem 'figaro'
+gem 'faraday'
+
+
+group :test do
+  gem 'pry'
+  gem 'rspec'
+  gem 'webmock'
+  gem 'simplecov', require: false
+end
 
 gemspec
