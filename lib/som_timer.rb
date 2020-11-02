@@ -10,6 +10,17 @@ class SomTimer
     puts hash
   end
 
+  def self.update_timer(work_interval, rest_interval, sound)
+    conn = Faraday.new
+    response = conn.put do |req|
+      req.url "https://som-timer-be.herokuapp.com/api/timers/1"
+      req.headers['Content-Type'] = 'application/json'
+      req.body = { "work_interval": "#{work_interval}", "rest_interval": "#{rest_interval}", "sound": "#{sound}" }.to_json
+    end
+    hash = JSON.parse(response.body, symbolize_names: true)
+    puts hash
+  end
+
   def self.one_timer
     self.perform_request("timers/1")
   end
