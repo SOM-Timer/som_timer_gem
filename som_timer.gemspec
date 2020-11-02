@@ -10,4 +10,5 @@ Gem::Specification.new do |s|
   s.homepage    =
     'https://rubygems.org/gems/som_timer'
   s.license       = 'MIT'
+  s.add_dependency "faraday"
 end
