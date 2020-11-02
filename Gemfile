@@ -10,6 +10,7 @@ group :test do
   gem 'pry'
   gem 'rspec'
   gem 'webmock'
+  gem 'vcr'
   gem 'simplecov', require: false
 end
 

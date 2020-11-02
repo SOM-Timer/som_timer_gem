@@ -1,6 +1,6 @@
 require "faraday"
 require "pry"
-require 'json'
+require "json"
 
 class SomTimer
   def self.perform_request(path)
