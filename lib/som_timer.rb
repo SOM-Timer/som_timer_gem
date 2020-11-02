@@ -3,34 +3,25 @@ require "pry"
 require "json"
 
 class SomTimer
-  def self.perform_request(path)
-    url = "https://som-timer-be.herokuapp.com/api/#{path}"
-    response = Faraday.get(url)
-    hash = JSON.parse(response.body, symbolize_names: true)
-    puts hash
+  def self.update_timer(work_interval, rest_interval, sound, path = "timers/1")
+    service = Service.new(path)
+    service.update_timer(work_interval, rest_interval, sound)
   end
 
-  def self.update_timer(work_interval, rest_interval, sound)
-    conn = Faraday.new
-    response = conn.put do |req|
-      req.url "https://som-timer-be.herokuapp.com/api/timers/1"
-      req.headers['Content-Type'] = 'application/json'
-      req.body = { "work_interval": "#{work_interval}", "rest_interval": "#{rest_interval}", "sound": "#{sound}" }.to_json
-    end
-    hash = JSON.parse(response.body, symbolize_names: true)
-    puts hash
+  def self.one_timer(path = "timers/1")
+    service = Service.new(path)
+    service.timer
   end
 
-  def self.one_timer
-    self.perform_request("timers/1")
+  def self.rand_exercise(duration, category, path = "rand_exercise")
+    service = Service.new(path)
+    service.rand_exercise(duration, category)
   end
 
-  def self.rand_exercise(duration, category)
-    url = "rand_exercise?duration=#{duration}&category=#{category}"
-    self.perform_request(url)
-  end
-
-  def self.exercises
-    self.perform_request("exercises")
+  def self.exercises(path = "exercises")
+    service = Service.new(path)
+    service.exercises
   end
 end
+
+require 'som_timer/service'
