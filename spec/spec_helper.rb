@@ -6,6 +6,7 @@ require 'pry'
 require 'vcr'
 
 require 'som_timer'
+require 'som_timer/poros/timer'
 
 RSpec.configure do |config|
   config.expect_with :rspec do |expectations|
