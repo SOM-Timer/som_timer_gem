@@ -1,35 +1,39 @@
 # Som Timer Ruby Gem:
 
-## Overview: 
-Ruby Gem to access the endpoints of the [Som Timer](https://som-timer.herokuapp.com/) API. 
+## Overview:
+Ruby Gem to access the endpoints of the [Som Timer](https://som-timer.herokuapp.com/) API.
 
-## Gem Installation : 
-To install: 
+## Gem Installation :
+To install:
 ```
 $ gem install som-timer
 ```
 
 To jump into interactive ruby session and access endpoints:
 ```
-$ irb 
+$ irb
 > require 'som_timer'
-# get one timer 
+# get one timer
 > SomTimer.one_timer
-# get a random exercise 
+# get a random exercise
 > SomTimer.rand_exercise(<duration>, <category>)
-# get all exercises 
+# get all exercises
 > SomTimer.exercises
 # update timer
 > SomTimer.update_timer(<work_interval>, <rest_interval>, <sound>)
+# get all rests
+> SomTimer.rests
+# create rest
+> SomTimer.create_rest(<mood_rating_1>, <mood_rating_2>, <content_selected>, <focus_interval>, <rest_interval>)
 ```
 
 ## Repo Usage:
-Clone down and run: 
+Clone down and run:
 ```
-bundle install 
+bundle install
 ```
 
-To update/build gem run: 
+To update/build gem run:
 ```
 $ gem build som_timer.gemspec
 $ gem install ./som-timer-0.0.0.gem
