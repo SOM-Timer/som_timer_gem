@@ -9,10 +9,10 @@ class SomTimer::RestFacade
   def response_rests
     @service.rests
   end
-  #
-  # def response_update_timer(work_interval, rest_interval, sound)
-  #   @service.update_timer(work_interval, rest_interval, sound)
-  # end
+
+  def response_create_rest(mood_rating_1, mood_rating_2, content_selected, focus_interval, rest_interval)
+    @service.create_rest(mood_rating_1, mood_rating_2, content_selected, focus_interval, rest_interval)
+  end
 
   def rests
     rests_info = response_rests[:rests]
@@ -22,7 +22,7 @@ class SomTimer::RestFacade
     end
   end
 
-  # def update_timer(work_interval, rest_interval, sound)
-  #   SomTimer::Timer.new(response_update_timer(work_interval, rest_interval, sound))
-  # end
+  def create_rest(mood_rating_1, mood_rating_2, content_selected, focus_interval, rest_interval)
+    SomTimer::Rest.new(response_create_rest(mood_rating_1, mood_rating_2, content_selected, focus_interval, rest_interval))
+  end
 end
