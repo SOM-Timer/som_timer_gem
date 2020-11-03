@@ -25,7 +25,7 @@ http_interactions:
       Server:
       - gunicorn/20.0.4
       Date:
-      - Tue, 03 Nov 2020 05:01:28 GMT
+      - Tue, 03 Nov 2020 20:15:27 GMT
       Content-Type:
       - application/json
       Content-Length:
@@ -43,5 +43,5 @@ http_interactions:
             "rest_interval": "5:00",
             "sound": "chordCliff"
         }
-  recorded_at: Tue, 03 Nov 2020 05:01:28 GMT
+  recorded_at: Tue, 03 Nov 2020 20:15:27 GMT
 recorded_with: VCR 6.0.0
