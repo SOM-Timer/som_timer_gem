@@ -18,13 +18,11 @@ class SomTimer
   end
 
   def self.rand_exercise(duration, category, path = "rand_exercise")
-    service = Service.new(path)
-    service.rand_exercise(duration, category)
+    ExerciseFacade.new(path).rand_exercise(duration, category)
   end
 
   def self.exercises(path = "exercises")
-    service = Service.new(path)
-    service.exercises
+    ExerciseFacade.new(path).exercises
   end
 
   def self.rests(path = "rests")
@@ -40,3 +38,4 @@ end
 
 require 'som_timer/service'
 require 'som_timer/facades/timer_facade'
+require 'som_timer/facades/exercise_facade'
