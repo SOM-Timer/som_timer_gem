@@ -6,7 +6,7 @@ describe SomTimer::Exercise do
       id: 1,
       url: "https://www.youtube.com/watch?v=W5wqniA4MMc&ab_channel=EssentialSomatics",
       duration: "5",
-      category: "MEDITATION"
+      category: "SomaticCategory.MEDITATION"
     }
 
     exercise = SomTimer::Exercise.new(attrs)
