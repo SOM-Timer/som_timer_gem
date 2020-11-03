@@ -59,7 +59,7 @@ RSpec.describe SomTimer::RestFacade do
 
     describe 'POST rest' do
       describe '#response_create_rest' do
-        it "calls the SomTimer API to create rest" do
+        it "calls the SomTimer API to create rest", :vcr do
           response = @facade.response_create_rest(3, 5, "SOMATIC", "25", "5")
 
           expect(response).to be_a Hash
@@ -69,9 +69,9 @@ RSpec.describe SomTimer::RestFacade do
           expect(response).to have_key :content_selected
           expect(response).to have_key :focus_interval
           expect(response).to have_key :rest_interval
-          expect(response[:id]).to eq(2)
-          expect(response[:mood_rating_1]).to eq(2)
-          expect(response[:mood_rating_2]).to eq(4)
+          expect(response[:id]).to eq(16)
+          expect(response[:mood_rating_1]).to eq(3)
+          expect(response[:mood_rating_2]).to eq(5)
           expect(response[:content_selected]).to eq("SOMATIC")
           expect(response[:focus_interval]).to eq("25")
           expect(response[:rest_interval]).to eq("5")
@@ -79,12 +79,12 @@ RSpec.describe SomTimer::RestFacade do
       end
 
       describe '#create_rest' do
-        it "instantiates a rest oject from the JSON response of creating rest" do
+        it "instantiates a rest oject from the JSON response of creating rest", :vcr do
           rest = @facade.create_rest(3, 5, "SOMATIC", "25", "5")
 
           expect(rest).to be_a SomTimer::Rest
           expect(rest.id).to be_a Integer
-          expect(rest.id).to eq(1)
+          expect(rest.id).to eq(17)
           expect(rest.mood_rating_1).to be_a Integer
           expect(rest.mood_rating_1).to eq(3)
           expect(rest.mood_rating_2).to be_a Integer
