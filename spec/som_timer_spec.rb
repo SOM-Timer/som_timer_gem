@@ -5,17 +5,17 @@ describe SomTimer do
     describe "successful request" do
       describe ".one_timer" do
         it "GET request to retrieve timer (1)", :vcr do
-          response = SomTimer.one_timer
+          timer = SomTimer.one_timer
 
-          expect(response).to be_a Hash
-          expect(response).to have_key :id
-          expect(response).to have_key :work_interval
-          expect(response).to have_key :rest_interval
-          expect(response).to have_key :sound
-          expect(response[:id]).to eq(1)
-          expect(response[:work_interval]).to eq(".5")
-          expect(response[:rest_interval]).to eq("5")
-          expect(response[:sound]).to eq("birdChord")
+          expect(timer).to be_a SomTimer::Timer
+          expect(timer.id).to be_a Integer
+          expect(timer.id).to eq(1)
+          expect(timer.work_interval).to be_a String
+          expect(timer.work_interval).to eq("0.03")
+          expect(timer.rest_interval).to be_a String
+          expect(timer.rest_interval).to eq("5")
+          expect(timer.sound).to be_a String
+          expect(timer.sound).to eq("birdChord")
         end
       end
 
