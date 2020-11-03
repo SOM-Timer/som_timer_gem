@@ -26,16 +26,15 @@ class SomTimer
   end
 
   def self.rests(path = "rests")
-    service = Service.new(path)
-    service.rests
+    RestFacade.new(path).rests
   end
 
   def self.create_rest(mood_rating_1, mood_rating_2, content_selected, focus_interval, rest_interval, path = "rests")
-    service = Service.new(path)
-    service.create_rest(mood_rating_1, mood_rating_2, content_selected, focus_interval, rest_interval)
+    RestFacade.new(path).create_rest(mood_rating_1, mood_rating_2, content_selected, focus_interval, rest_interval)
   end
 end
 
 require 'som_timer/service'
 require 'som_timer/facades/timer_facade'
 require 'som_timer/facades/exercise_facade'
+require 'som_timer/facades/rest_facade'
