@@ -10,9 +10,9 @@ class SomTimer::ExerciseFacade
     @service.exercises
   end
 
-  # def response_update_timer(work_interval, rest_interval, sound)
-  #   @service.update_timer(work_interval, rest_interval, sound)
-  # end
+  def response_rand_exercise(duration, category)
+    @service.rand_exercise(duration, category)
+  end
 
   def exercises
     exercises_info = response_exercises[:exercises]
@@ -22,7 +22,7 @@ class SomTimer::ExerciseFacade
     end
   end
 
-  # def update_timer(work_interval, rest_interval, sound)
-  #   SomTimer::Timer.new(response_update_timer(work_interval, rest_interval, sound))
-  # end
+  def rand_exercise(duration, category)
+    SomTimer::Exercise.new(response_rand_exercise(duration, category))
+  end
 end
