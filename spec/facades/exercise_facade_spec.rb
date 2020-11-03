@@ -49,38 +49,42 @@ RSpec.describe SomTimer::ExerciseFacade do
       end
     end
 
-    # describe 'PUT timer (1)' do
-    #   describe '#response_update_timer' do
-    #     it "calls the SomTimer API to update timer (1)", :vcr do
-    #       response = @facade.response_update_timer("10", "7", "chordCliff")
-    #
-    #       expect(response).to be_a Hash
-    #       expect(response).to have_key :id
-    #       expect(response).to have_key :work_interval
-    #       expect(response).to have_key :rest_interval
-    #       expect(response).to have_key :sound
-    #       expect(response[:id]).to eq(1)
-    #       expect(response[:work_interval]).to eq("10")
-    #       expect(response[:rest_interval]).to eq("7")
-    #       expect(response[:sound]).to eq("chordCliff")
-    #     end
-    #   end
-    #
-    #   describe '#update_timer' do
-    #     it "instantiates a timer oject from the JSON response of updating timer (1)", :vcr do
-    #       timer = @facade.update_timer("10", "7", "chordCliff")
-    #
-    #       expect(timer).to be_a SomTimer::Timer
-    #       expect(timer.id).to be_a Integer
-    #       expect(timer.id).to eq(1)
-    #       expect(timer.work_interval).to be_a String
-    #       expect(timer.work_interval).to eq("10")
-    #       expect(timer.rest_interval).to be_a String
-    #       expect(timer.rest_interval).to eq("7")
-    #       expect(timer.sound).to be_a String
-    #       expect(timer.sound).to eq("chordCliff")
-    #     end
-    #   end
-    # end
+    describe 'GET rand_exercise' do
+      before :each do
+        path = "rand_exercise"
+        @facade = SomTimer::ExerciseFacade.new(path)
+      end
+      describe '#response_rand_exercise' do
+        it "calls the SomTimer API to get rand_exercise" do
+          response = @facade.response_rand_exercise("10:00", "SOMATIC")
+
+          expect(response).to be_a Hash
+          expect(response).to have_key :id
+          expect(response).to have_key :url
+          expect(response).to have_key :duration
+          expect(response).to have_key :category
+          expect(response[:id]).to eq(32)
+          expect(response[:url]).to eq("https://soundcloud.com/ucsdmindfulness/10-min-body-scan-by-christy-cassisa?in=ucsdmindfulness/sets/short-meditation-sessions")
+          expect(response[:duration]).to eq("10:00")
+          expect(response[:category]).to eq("SomaticCategory.SOMATIC")
+        end
+      end
+
+      describe '#rand_exercise' do
+        it "instantiates an exercise oject from the JSON response of retrieving a random exercise" do
+          rand_exercise = @facade.rand_exercise("10:00", "SOMATIC")
+
+          expect(rand_exercise).to be_a SomTimer::Exercise
+          expect(rand_exercise.id).to be_a Integer
+          expect(rand_exercise.id).to eq(1)
+          expect(rand_exercise.url).to be_a String
+          expect(rand_exercise.url).to eq("https://www.youtube.com/watch?v=W5wqniA4MMc&ab_channel=EssentialSomatics")
+          expect(rand_exercise.duration).to be_a String
+          expect(rand_exercise.duration).to eq("10")
+          expect(rand_exercise.category).to be_a String
+          expect(rand_exercise.category).to eq("SOMATIC")
+        end
+      end
+    end
   end
 end
