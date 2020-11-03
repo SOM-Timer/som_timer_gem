@@ -2,11 +2,11 @@ require 'spec_helper'
 
 RSpec.describe SomTimer::TimerFacade do
   describe 'instance methods' do
+    before :each do
+      path = "timers/1"
+      @facade = SomTimer::TimerFacade.new(path)
+    end
     describe 'GET timer (1)' do
-      before :each do
-        path = "timers/1"
-        @facade = SomTimer::TimerFacade.new(path)
-      end
       describe '#response_timer' do
         it "calls the SomTimer API to get timer (1)", :vcr do
           response = @facade.response_timer
@@ -41,10 +41,6 @@ RSpec.describe SomTimer::TimerFacade do
     end
 
     describe 'PUT timer (1)' do
-      before :each do
-        path = "timers/1"
-        @facade = SomTimer::TimerFacade.new(path)
-      end
       describe '#response_update_timer' do
         it "calls the SomTimer API to update timer (1)", :vcr do
           response = @facade.response_update_timer("10", "7", "chordCliff")
