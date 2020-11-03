@@ -4,6 +4,7 @@ ruby '2.5.3'
 
 gem 'figaro'
 gem 'faraday'
+gem 'rdoc'
 
 
 group :test do
