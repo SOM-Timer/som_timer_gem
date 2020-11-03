@@ -1,0 +1,10 @@
+language: ruby
+cache: bundler
+rvm:
+- 2.5.3
+script:
+- bundle exec rspec --format doc
+deploy:
+  provider: rubygems
+  api_key:
+    secure: Qz/wyAxMvGtc/Ryq4p9Kgzevo/X6/fZj/F9/3qGuSUCwaLE6E/1ukgvQEX3JqwxWC9O1Gzm5BcW3iGkFGxgIKKifwfOSTGZ8d8u2qr1YGe1zmkgRNIEnN82t3sf4fHuNvfuUDzzf9QmjfNBMLBT8lLSyzJUnjRqCaMsLDQKCmnhD4J2V+3Qrad0larQs2tzzNVcgUqg2Froy9JG1/O4vtMvCWwtt2KrBtD5sBuDiSJYkLhYdzDZ2WvwnfBKUrWHFrkb1Xf1P/DRMCsJa3xLKmI45o4PwhX9LJrgvvfpt1P45C2gLCoh/igeq6h4sL61xXSiBDb2pTLTIHIRxzdOr7hff9wccGU/DEvUPYRttYbIEjpuA63aW9PBAxtNXkpzfY+krsjXIXrpRVondTp8HmsHZH72rmgRrKGZFlLorVn/p506alSSTHAqTU7ckGxX4bef9CCOyiaH9SaDstjuNEPWq0Hk1T+Hud/AgpnZEjcKp8c+oW1HXWgyu5+4SrMb8RmvApazw3atxZgjNCWfbWj+xsGW3VEmnUt9gMTIRYckcblw1+xyVfEaGjtoGGHaMBZIpHg6oJce9Y55gnoi5GEO16zk7zm5dV0aROS1LSGoe/UyxVbLFodDlAHw6xvEo5wV6ynYpsNuc0cPA7Io5CmoQ1PUZYSmtAGpvj0sYfO0=
