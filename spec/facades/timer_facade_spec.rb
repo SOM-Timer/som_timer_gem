@@ -46,7 +46,7 @@ RSpec.describe SomTimer::TimerFacade do
         @facade = SomTimer::TimerFacade.new(path)
       end
       describe '#response_update_timer' do
-        it "calls the SomTimer API to update timer (1)" do
+        it "calls the SomTimer API to update timer (1)", :vcr do
           response = @facade.response_update_timer("10", "7", "chordCliff")
 
           expect(response).to be_a Hash
@@ -62,8 +62,8 @@ RSpec.describe SomTimer::TimerFacade do
       end
 
       describe '#update_timer' do
-        it "instantiates a timer oject from the JSON response of updating timer (1)" do
-          timer = @facade.update_timer
+        it "instantiates a timer oject from the JSON response of updating timer (1)", :vcr do
+          timer = @facade.update_timer("10", "7", "chordCliff")
 
           expect(timer).to be_a SomTimer::Timer
           expect(timer.id).to be_a Integer
