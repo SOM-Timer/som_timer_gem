@@ -96,7 +96,6 @@ describe SomTimer do
           expect(timer.rest_interval).to eq("5:00")
           expect(timer.sound).to be_a String
           expect(timer.sound).to eq("chordCliff")
-
         end
       end
 
