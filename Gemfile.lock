@@ -20,6 +20,7 @@ GEM
       thor (>= 0.14.0, < 2)
     hashdiff (1.0.1)
     method_source (1.0.0)
+    mocha (1.11.2)
     multipart-post (2.1.1)
     pry (0.13.1)
       coderay (~> 1.1)
@@ -56,6 +57,7 @@ PLATFORMS
 DEPENDENCIES
   faraday
   figaro
+  mocha
   pry
   rspec
   simplecov
