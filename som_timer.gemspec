@@ -1,6 +1,6 @@
 Gem::Specification.new do |s|
   s.name        = 'som-timer'
-  s.version     = '0.0.0'
+  s.version     = '0.0.1'
   s.date        = '2020-11-01'
   s.summary     = "Som Timer API endpoint accessor"
   s.description = "A ruby library for accessing API endpoints of the SomTimer application."
