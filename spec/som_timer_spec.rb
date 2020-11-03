@@ -43,7 +43,7 @@ describe SomTimer do
           rests = SomTimer.rests
 
           expect(rests).to be_an Array
-          expect(rests.count).to eq(9)
+          expect(rests.count).to eq(17)
           rest = rests[0]
           expect(rest).to be_a SomTimer::Rest
           expect(rest.id).to be_a Integer
@@ -99,11 +99,11 @@ describe SomTimer do
 
           expect(rest).to be_a SomTimer::Rest
           expect(rest.id).to be_a Integer
-          expect(rest.id).to eq(17)
+          expect(rest.id).to eq(18)
           expect(rest.mood_rating_1).to be_a Integer
-          expect(rest.mood_rating_1).to eq(3)
+          expect(rest.mood_rating_1).to eq(2)
           expect(rest.mood_rating_2).to be_a Integer
-          expect(rest.mood_rating_2).to eq(5)
+          expect(rest.mood_rating_2).to eq(4)
           expect(rest.content_selected).to be_a String
           expect(rest.content_selected).to eq("SOMATIC")
           expect(rest.focus_interval).to be_a String
