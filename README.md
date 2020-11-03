@@ -27,6 +27,8 @@ $ irb
 > SomTimer.create_rest(<mood_rating_1>, <mood_rating_2>, <content_selected>, <focus_interval>, <rest_interval>)
 ```
 
+All endpoints return a Ruby Object or a collection or Ruby Objects for ease of use. 
+
 ## Repo Usage:
 Clone down and run:
 ```
