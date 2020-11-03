@@ -9,6 +9,7 @@ require 'som_timer'
 require 'som_timer/poros/timer'
 require 'som_timer/poros/exercise'
 require 'som_timer/facades/timer_facade'
+require 'som_timer/facades/exercise_facade'
 
 RSpec.configure do |config|
   config.expect_with :rspec do |expectations|
