@@ -6,7 +6,14 @@ Gem::Specification.new do |s|
   s.description = "A ruby library for accessing API endpoints of the SomTimer application."
   s.authors     = ["Sienna Kopf"]
   s.email       = 'princess.kopf@gmail.com'
-  s.files       = ["lib/som_timer.rb", "lib/som_timer/service.rb"]
+  s.files       = ["lib/som_timer.rb",
+                   "lib/som_timer/service.rb",
+                   "lib/som_timer/poros/exercise.rb",
+                   "lib/som_timer/poros/rest.rb",
+                   "lib/som_timer/poros/timer.rb",
+                   "lib/som_timer/facades/exercise_facade.rb",
+                   "lib/som_timer/facades/rest_facade.rb", 
+                   "lib/som_timer/facades/timer_facade.rb"]
   s.homepage    =
     'https://rubygems.org/gems/som_timer'
   s.license       = 'MIT'
