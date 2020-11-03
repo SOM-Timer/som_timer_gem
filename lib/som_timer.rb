@@ -10,8 +10,7 @@ class SomTimer
   end
 
   def self.update_timer(work_interval, rest_interval, sound, path = "timers/1")
-    service = Service.new(path)
-    service.update_timer(work_interval, rest_interval, sound)
+    TimerFacade.new(path).update_timer(work_interval, rest_interval, sound)
   end
 
   def self.one_timer(path = "timers/1")
