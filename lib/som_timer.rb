@@ -16,7 +16,7 @@ class SomTimer
 
   def self.one_timer(path = "timers/1")
     service = Service.new(path)
-    service.timer
+    Timer.new(service.timer)
   end
 
   def self.rand_exercise(duration, category, path = "rand_exercise")
@@ -41,3 +41,4 @@ class SomTimer
 end
 
 require 'som_timer/service'
+require 'som_timer/poros/timer'
