@@ -1,0 +1,45 @@
+---
+http_interactions:
+- request:
+    method: get
+    uri: https://som-timer-be.herokuapp.com/api/timers/1
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      User-Agent:
+      - Faraday v1.1.0
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Connection:
+      - keep-alive
+      Server:
+      - gunicorn/20.0.4
+      Date:
+      - Tue, 03 Nov 2020 05:01:27 GMT
+      Content-Type:
+      - application/json
+      Content-Length:
+      - '95'
+      Access-Control-Allow-Origin:
+      - "*"
+      Via:
+      - 1.1 vegur
+    body:
+      encoding: UTF-8
+      string: |
+        {
+            "id": 1,
+            "work_interval": ".5",
+            "rest_interval": "5",
+            "sound": "birdChord"
+        }
+  recorded_at: Tue, 03 Nov 2020 05:01:27 GMT
+recorded_with: VCR 6.0.0

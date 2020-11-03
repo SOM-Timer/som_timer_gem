@@ -3,34 +3,41 @@ require "pry"
 require "json"
 
 class SomTimer
-  def self.perform_request(path)
-    url = "https://som-timer-be.herokuapp.com/api/#{path}"
-    response = Faraday.get(url)
-    hash = JSON.parse(response.body, symbolize_names: true)
-    puts hash
+  def self.hello_world
+    puts "Hello World! This is SomTimer, a timer that cares.
+            \nBased on the pomodoro technique™️, this application provides users with curated wellness content during break intervals.
+            \nBuild in rest, so you can focus best."
   end
 
-  def self.update_timer(work_interval, rest_interval, sound)
-    conn = Faraday.new
-    response = conn.put do |req|
-      req.url "https://som-timer-be.herokuapp.com/api/timers/1"
-      req.headers['Content-Type'] = 'application/json'
-      req.body = { "work_interval": "#{work_interval}", "rest_interval": "#{rest_interval}", "sound": "#{sound}" }.to_json
-    end
-    hash = JSON.parse(response.body, symbolize_names: true)
-    puts hash
+  def self.update_timer(work_interval, rest_interval, sound, path = "timers/1")
+    service = Service.new(path)
+    service.update_timer(work_interval, rest_interval, sound)
   end
 
-  def self.one_timer
-    self.perform_request("timers/1")
+  def self.one_timer(path = "timers/1")
+    service = Service.new(path)
+    service.timer
   end
 
-  def self.rand_exercise(duration, category)
-    url = "rand_exercise?duration=#{duration}&category=#{category}"
-    self.perform_request(url)
+  def self.rand_exercise(duration, category, path = "rand_exercise")
+    service = Service.new(path)
+    service.rand_exercise(duration, category)
   end
 
-  def self.exercises
-    self.perform_request("exercises")
+  def self.exercises(path = "exercises")
+    service = Service.new(path)
+    service.exercises
+  end
+
+  def self.rests(path = "rests")
+    service = Service.new(path)
+    service.rests
+  end
+
+  def self.create_rest(mood_rating_1, mood_rating_2, content_selected, focus_interval, rest_interval, path = "rests")
+    service = Service.new(path)
+    service.create_rest(mood_rating_1, mood_rating_2, content_selected, focus_interval, rest_interval)
   end
 end
+
+require 'som_timer/service'
