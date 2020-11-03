@@ -28,6 +28,16 @@ class SomTimer
     service = Service.new(path)
     service.exercises
   end
+
+  def self.rests(path = "rests")
+    service = Service.new(path)
+    service.rests
+  end
+
+  def self.create_rest(mood_rating_1, mood_rating_2, content_selected, focus_interval, rest_interval, path = "rests")
+    service = Service.new(path)
+    service.create_rest(mood_rating_1, mood_rating_2, content_selected, focus_interval, rest_interval)
+  end
 end
 
 require 'som_timer/service'
