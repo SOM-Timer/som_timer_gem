@@ -55,7 +55,7 @@ RSpec.describe SomTimer::ExerciseFacade do
         @facade = SomTimer::ExerciseFacade.new(path)
       end
       describe '#response_rand_exercise' do
-        it "calls the SomTimer API to get rand_exercise" do
+        it "calls the SomTimer API to get rand_exercise", :vcr do
           response = @facade.response_rand_exercise("10:00", "SOMATIC")
 
           expect(response).to be_a Hash
@@ -71,16 +71,16 @@ RSpec.describe SomTimer::ExerciseFacade do
       end
 
       describe '#rand_exercise' do
-        it "instantiates an exercise oject from the JSON response of retrieving a random exercise" do
+        it "instantiates an exercise oject from the JSON response of retrieving a random exercise", :vcr do
           rand_exercise = @facade.rand_exercise("10:00", "SOMATIC")
 
           expect(rand_exercise).to be_a SomTimer::Exercise
           expect(rand_exercise.id).to be_a Integer
-          expect(rand_exercise.id).to eq(1)
+          expect(rand_exercise.id).to eq(33)
           expect(rand_exercise.url).to be_a String
-          expect(rand_exercise.url).to eq("https://www.youtube.com/watch?v=W5wqniA4MMc&ab_channel=EssentialSomatics")
+          expect(rand_exercise.url).to eq("https://www.youtube.com/watch?v=zsCVqFr6j1g&feature=emb_logo")
           expect(rand_exercise.duration).to be_a String
-          expect(rand_exercise.duration).to eq("10")
+          expect(rand_exercise.duration).to eq("10:00")
           expect(rand_exercise.category).to be_a String
           expect(rand_exercise.category).to eq("SOMATIC")
         end
