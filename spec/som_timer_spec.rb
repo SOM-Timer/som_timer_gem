@@ -70,9 +70,9 @@ describe SomTimer do
 
           expect(rand_exercise).to be_a SomTimer::Exercise
           expect(rand_exercise.id).to be_a Integer
-          expect(rand_exercise.id).to eq(33)
+          expect(rand_exercise.id).to eq(32)
           expect(rand_exercise.url).to be_a String
-          expect(rand_exercise.url).to eq("https://www.youtube.com/watch?v=zsCVqFr6j1g&feature=emb_logo")
+          expect(rand_exercise.url).to eq("https://soundcloud.com/ucsdmindfulness/10-min-body-scan-by-christy-cassisa?in=ucsdmindfulness/sets/short-meditation-sessions")
           expect(rand_exercise.duration).to be_a String
           expect(rand_exercise.duration).to eq("10:00")
           expect(rand_exercise.category).to be_a String
