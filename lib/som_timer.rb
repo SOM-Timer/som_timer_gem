@@ -5,13 +5,6 @@ require "json"
 gem 'rdoc'
 require 'rdoc/rdoc'
 
-options = RDoc::Options.new
-# see RDoc::Options
-
-rdoc = RDoc::RDoc.new
-rdoc.document options
-# see RDoc::RDoc
-
 class SomTimer
   ##
   # Learn more about Som Timer

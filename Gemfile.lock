@@ -1,8 +1,9 @@
 PATH
   remote: .
   specs:
-    som-timer (0.0.2)
+    som-timer (0.0.3)
       faraday
+      rdoc
 
 GEM
   remote: https://rubygems.org/
