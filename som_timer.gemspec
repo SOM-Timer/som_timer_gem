@@ -1,6 +1,6 @@
 Gem::Specification.new do |s|
   s.name        = 'som-timer'
-  s.version     = '0.0.3'
+  s.version     = '0.0.4'
   s.date        = '2020-11-01'
   s.summary     = "Som Timer API endpoint accessor"
   s.description = "A ruby library for accessing API endpoints of the SomTimer application."
@@ -18,6 +18,5 @@ Gem::Specification.new do |s|
     'https://rubygems.org/gems/som_timer'
   s.license       = 'MIT'
   s.add_dependency "faraday"
-  s.add_dependency "rdoc"
   s.add_development_dependency "mocha"
 end
