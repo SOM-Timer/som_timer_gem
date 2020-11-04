@@ -2,9 +2,6 @@ require "faraday"
 require "pry"
 require "json"
 
-gem 'rdoc'
-require 'rdoc/rdoc'
-
 class SomTimer
   ##
   # Learn more about Som Timer

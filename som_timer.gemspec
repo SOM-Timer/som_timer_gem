@@ -18,6 +18,5 @@ Gem::Specification.new do |s|
     'https://rubygems.org/gems/som_timer'
   s.license       = 'MIT'
   s.add_dependency "faraday"
-  s.add_dependency "rdoc"
   s.add_development_dependency "mocha"
 end
