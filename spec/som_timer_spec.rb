@@ -5,117 +5,111 @@ describe SomTimer do
     describe "successful request" do
       describe ".one_timer" do
         it "GET request to retrieve timer (1)", :vcr do
-          response = SomTimer.one_timer
+          timer = SomTimer.one_timer
 
-          expect(response).to be_a Hash
-          expect(response).to have_key :id
-          expect(response).to have_key :work_interval
-          expect(response).to have_key :rest_interval
-          expect(response).to have_key :sound
-          expect(response[:id]).to eq(1)
-          expect(response[:work_interval]).to eq(".5")
-          expect(response[:rest_interval]).to eq("5")
-          expect(response[:sound]).to eq("birdChord")
+          expect(timer).to be_a SomTimer::Timer
+          expect(timer.id).to be_a Integer
+          expect(timer.id).to eq(1)
+          expect(timer.work_interval).to be_a String
+          expect(timer.work_interval).to eq("25")
+          expect(timer.rest_interval).to be_a String
+          expect(timer.rest_interval).to eq("5")
+          expect(timer.sound).to be_a String
+          expect(timer.sound).to eq("reverbSplash")
         end
       end
 
       describe ".exercises" do
         it "GET request to retrieve all exercises", :vcr do
-          response = SomTimer.exercises
+          exercises = SomTimer.exercises
 
-          expect(response).to be_a Hash
-          expect(response).to have_key :count
-          expect(response).to have_key :exercises
-          expect(response[:count]).to be_a Integer
-          expect(response[:count]).to eq(33)
-          expect(response[:exercises]).to be_an Array
-          exercise_1 = response[:exercises][0]
-          expect(exercise_1).to have_key :id
-          expect(exercise_1).to have_key :url
-          expect(exercise_1).to have_key :duration
-          expect(exercise_1).to have_key :category
-          expect(exercise_1[:id]).to eq(1)
-          expect(exercise_1[:url]).to eq("https://www.youtube.com/watch?v=W5wqniA4MMc&ab_channel=EssentialSomatics")
-          expect(exercise_1[:duration]).to eq("10:00")
-          expect(exercise_1[:category]).to eq("SomaticCategory.MEDITATION")
+          expect(exercises).to be_an Array
+          expect(exercises.length).to eq(33)
+          exercise = exercises[0]
+          expect(exercise).to be_a SomTimer::Exercise
+          expect(exercise.id).to be_a Integer
+          expect(exercise.id).to eq(1)
+          expect(exercise.url).to be_a String
+          expect(exercise.url).to eq("https://www.youtube.com/watch?v=W5wqniA4MMc&ab_channel=EssentialSomatics")
+          expect(exercise.duration).to be_a String
+          expect(exercise.duration).to eq("10:00")
+          expect(exercise.category).to be_a String
+          expect(exercise.category).to eq("MEDITATION")
         end
       end
 
       describe ".rests" do
         it "GET request to retrieve all rests", :vcr do
-          response = SomTimer.rests
+          rests = SomTimer.rests
 
-          expect(response).to be_a Hash
-          expect(response).to have_key :count
-          expect(response).to have_key :rests
-          expect(response[:count]).to be_a Integer
-          expect(response[:count]).to eq(1)
-          expect(response[:rests]).to be_an Array
-          rest_1 = response[:rests][0]
-          expect(rest_1).to have_key :id
-          expect(rest_1).to have_key :mood_rating_1
-          expect(rest_1).to have_key :mood_rating_2
-          expect(rest_1).to have_key :content_selected
-          expect(rest_1).to have_key :focus_interval
-          expect(rest_1).to have_key :rest_interval
-          expect(rest_1[:id]).to eq(1)
-          expect(rest_1[:mood_rating_1]).to eq(3)
-          expect(rest_1[:mood_rating_2]).to eq(5)
-          expect(rest_1[:content_selected]).to eq("MOVEMENT")
-          expect(rest_1[:focus_interval]).to eq("25")
-          expect(rest_1[:rest_interval]).to eq("5")
+          expect(rests).to be_an Array
+          expect(rests.count).to eq(17)
+          rest = rests[0]
+          expect(rest).to be_a SomTimer::Rest
+          expect(rest.id).to be_a Integer
+          expect(rest.id).to eq(1)
+          expect(rest.mood_rating_1).to be_a Integer
+          expect(rest.mood_rating_1).to eq(3)
+          expect(rest.mood_rating_2).to be_a Integer
+          expect(rest.mood_rating_2).to eq(5)
+          expect(rest.content_selected).to be_a String
+          expect(rest.content_selected).to eq("MOVEMENT")
+          expect(rest.focus_interval).to be_a String
+          expect(rest.focus_interval).to eq("25")
+          expect(rest.rest_interval).to be_a String
+          expect(rest.rest_interval).to eq("5")
         end
       end
 
       describe ".rand_exercise" do
         it "GET request to retrieve a random exercise", :vcr do
-          response = SomTimer.rand_exercise("10:00", "SOMATIC")
+          rand_exercise = SomTimer.rand_exercise("10:00", "SOMATIC")
 
-          expect(response).to be_a Hash
-          expect(response).to have_key :id
-          expect(response).to have_key :url
-          expect(response).to have_key :duration
-          expect(response).to have_key :category
-          expect(response[:id]).to eq(32)
-          expect(response[:url]).to eq("https://soundcloud.com/ucsdmindfulness/10-min-body-scan-by-christy-cassisa?in=ucsdmindfulness/sets/short-meditation-sessions")
-          expect(response[:duration]).to eq("10:00")
-          expect(response[:category]).to eq("SomaticCategory.SOMATIC")
+          expect(rand_exercise).to be_a SomTimer::Exercise
+          expect(rand_exercise.id).to be_a Integer
+          expect(rand_exercise.id).to eq(32)
+          expect(rand_exercise.url).to be_a String
+          expect(rand_exercise.url).to eq("https://soundcloud.com/ucsdmindfulness/10-min-body-scan-by-christy-cassisa?in=ucsdmindfulness/sets/short-meditation-sessions")
+          expect(rand_exercise.duration).to be_a String
+          expect(rand_exercise.duration).to eq("10:00")
+          expect(rand_exercise.category).to be_a String
+          expect(rand_exercise.category).to eq("SOMATIC")
         end
       end
 
       describe ".update_timer" do
         it "PUT request to update timer (1)", :vcr do
-          response = SomTimer.update_timer("25:00", "5:00", "chordCliff")
+          timer = SomTimer.update_timer("25:00", "5:00", "chordCliff")
 
-          expect(response).to be_a Hash
-          expect(response).to have_key :id
-          expect(response).to have_key :work_interval
-          expect(response).to have_key :rest_interval
-          expect(response).to have_key :sound
-          expect(response[:id]).to eq(1)
-          expect(response[:work_interval]).to eq("25:00")
-          expect(response[:rest_interval]).to eq("5:00")
-          expect(response[:sound]).to eq("chordCliff")
+          expect(timer).to be_a SomTimer::Timer
+          expect(timer.id).to be_a Integer
+          expect(timer.id).to eq(1)
+          expect(timer.work_interval).to be_a String
+          expect(timer.work_interval).to eq("25:00")
+          expect(timer.rest_interval).to be_a String
+          expect(timer.rest_interval).to eq("5:00")
+          expect(timer.sound).to be_a String
+          expect(timer.sound).to eq("chordCliff")
         end
       end
 
       describe ".create_rest" do
         it "POST request to create a rest", :vcr do
-          response = SomTimer.create_rest(2, 4, "SOMATIC", "25", "5")
+          rest = SomTimer.create_rest(2, 4, "SOMATIC", "25", "5")
 
-          expect(response).to be_a Hash
-          expect(response).to have_key :id
-          expect(response).to have_key :mood_rating_1
-          expect(response).to have_key :mood_rating_2
-          expect(response).to have_key :content_selected
-          expect(response).to have_key :focus_interval
-          expect(response).to have_key :rest_interval
-          expect(response[:id]).to eq(2)
-          expect(response[:mood_rating_1]).to eq(2)
-          expect(response[:mood_rating_2]).to eq(4)
-          expect(response[:content_selected]).to eq("SOMATIC")
-          expect(response[:focus_interval]).to eq("25")
-          expect(response[:rest_interval]).to eq("5")
+          expect(rest).to be_a SomTimer::Rest
+          expect(rest.id).to be_a Integer
+          expect(rest.id).to eq(18)
+          expect(rest.mood_rating_1).to be_a Integer
+          expect(rest.mood_rating_1).to eq(2)
+          expect(rest.mood_rating_2).to be_a Integer
+          expect(rest.mood_rating_2).to eq(4)
+          expect(rest.content_selected).to be_a String
+          expect(rest.content_selected).to eq("SOMATIC")
+          expect(rest.focus_interval).to be_a String
+          expect(rest.focus_interval).to eq("25")
+          expect(rest.rest_interval).to be_a String
+          expect(rest.rest_interval).to eq("5")
         end
       end
 

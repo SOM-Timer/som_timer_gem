@@ -23,7 +23,7 @@ http_interactions:
       Server:
       - gunicorn/20.0.4
       Date:
-      - Tue, 03 Nov 2020 05:18:08 GMT
+      - Tue, 03 Nov 2020 20:39:34 GMT
       Content-Type:
       - application/json
       Content-Length:
@@ -41,5 +41,5 @@ http_interactions:
             "duration": "10:00",
             "category": "SomaticCategory.SOMATIC"
         }
-  recorded_at: Tue, 03 Nov 2020 05:18:08 GMT
+  recorded_at: Tue, 03 Nov 2020 20:39:34 GMT
 recorded_with: VCR 6.0.0

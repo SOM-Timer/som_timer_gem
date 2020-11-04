@@ -23,11 +23,11 @@ http_interactions:
       Server:
       - gunicorn/20.0.4
       Date:
-      - Tue, 03 Nov 2020 05:01:27 GMT
+      - Tue, 03 Nov 2020 20:05:17 GMT
       Content-Type:
       - application/json
       Content-Length:
-      - '95'
+      - '98'
       Access-Control-Allow-Origin:
       - "*"
       Via:
@@ -37,9 +37,9 @@ http_interactions:
       string: |
         {
             "id": 1,
-            "work_interval": ".5",
+            "work_interval": "25",
             "rest_interval": "5",
-            "sound": "birdChord"
+            "sound": "reverbSplash"
         }
-  recorded_at: Tue, 03 Nov 2020 05:01:27 GMT
+  recorded_at: Tue, 03 Nov 2020 20:05:17 GMT
 recorded_with: VCR 6.0.0

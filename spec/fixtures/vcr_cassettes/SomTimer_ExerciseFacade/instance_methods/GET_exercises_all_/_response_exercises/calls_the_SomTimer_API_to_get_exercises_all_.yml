@@ -23,7 +23,7 @@ http_interactions:
       Server:
       - gunicorn/20.0.4
       Date:
-      - Tue, 03 Nov 2020 20:39:33 GMT
+      - Tue, 03 Nov 2020 20:29:57 GMT
       Content-Type:
       - application/json
       Content-Length:
@@ -238,5 +238,5 @@ http_interactions:
                 }
             ]
         }
-  recorded_at: Tue, 03 Nov 2020 20:39:33 GMT
+  recorded_at: Tue, 03 Nov 2020 20:29:57 GMT
 recorded_with: VCR 6.0.0
