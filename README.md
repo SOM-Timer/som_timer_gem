@@ -1,12 +1,10 @@
 # Som Timer Ruby Gem:
-
-Current Version: 0.0.3
+[Published Som Timer Gem Version 0.0.3 here](https://rubygems.org/gems/som-timer) </br>
+[Som Timer App here](https://som-timer.herokuapp.com/) </br>
+[API python/flask App here](https://som-timer-be.herokuapp.com/) </br>
 
 ## Overview:
 Ruby Gem to access the endpoints of the Som Timer API. Source quality wellness content or use this framework for your own timer app! All methods included for this gem return a Ruby Object or a collection or Ruby Objects for ease of use. Detailed documentation for each endpoint can be found in the [`./lib/som_timer.rb` file here](https://github.com/SOM-Timer/som_timer_gem/blob/master/lib/som_timer.rb). </br>
-[Published Som Timer Gem here](https://rubygems.org/gems/som-timer) </br>
-[Som Timer App here](https://som-timer.herokuapp.com/) </br>
-[API python/flask App here](https://som-timer-be.herokuapp.com/) </br>
 
 ## Gem Installation :
 To install:
